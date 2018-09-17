@@ -1,0 +1,95 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11100\viewh8700\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 API testing with Postman:\
+\
+Keywords: Request Builder, JSON(JavaScript Object Notation)\
+\
+Course Overview:\
+\
+Usage of postman, write a simple test and running them using a automation tool, using real world api\'92s\
+\
+Using postman with continuous integration servers\
+\
+=========================================\
+Postman is end to end testing tool for working with API\'92s.\
+You can do both manual and automated API tests using postman\
+Good to organize tests as you can create a collection for all the requests you are making on an api\
+\
+Variables: They are used to pass data between two/more requests\
+=> if you want to run all requests you are making to an API , you can use collection runner\
+=> Collections are used to save requests, run them in the order they are stored inside a collection\
+=> Collections are helpful for collaboration (you can upload a collection, hare a link, you share with team but you need Postman Pro)\
+\
+=> With Newman you can run and test a collection directly from the command line CLI\
+\
+======\
+\
+1) HTTP REQUEST has four parts:\
+\
+Request Method :(GET, POST, PUT, DELETE, PATCH, COPY, HEAD, OPTIONS, LINK, UNLINK, PURGE, LOCK, UNLOCK)\
+\
+2) Request URL(http://requestbin.fullcontact.com)\
+\
+3) Headers(Userdefined/Predefined)\
+\
+4) Body (PUT,PATCH,POST will have body)\
+\
+More about body:\
+Form data: This is used while testing forms. Along with API testing postman give us a feature to test forms as well. You have key and value options under Form Data(key: name of the field, value : value you want to test against that field, value can be text or you can upload any file) \
+\
+Importing Request from your browser:\
+\
+Response:\
+\
+200/ response code starting with 2 indicates that everything is ok, starts with 4 indicates that you have sent tells that server couldn\'92t understand your request, starting with 5 indicates problem with server\
+\
+400 : Bad Request\
+401: Unauthorized\
+\
+Troubleshooting problems with API\'92s:\
+=> check for typo\
+=> check if the servers are available(API is up and running)\
+=> type the domain Or IP and port of the API you are calling in your browser\
+=> make sure you are using right protocol(http/https)\
+=>SSL certificate on/off  \
+\
+\
+POSTMAN-TESTS:\
+\
+=> Test is a simple assertion and in postman test will be run after the request is made. One request can have multiple tests\
+=> Postman tests works in a non-0blocking way meaning if one test is failed it doesn\'92t block the execution of other test\
+\
+
+\b Example of a test in postman:
+\b0 \
+\
+=> pm.test(\'93test name\'94, function() \{ // here, test name is a string and next argument is a call back function\
+ pm.response.to.have.status(200); // pm.response is a response assertion API which can make assertions on the response object\
+\});\
+\
+
+\b Variable Scopes:\
+=> Global\
+=> Environment\
+=> Local\
+=> Data\
+\
+Using Variables:\
+\{\{variable-name\}\}\
+\
+Accessing global variables:\
+\
+Pm.gobal.get(\'93variable-key\'94);\
+Pm.global.set(\'93variable-key\'94, variable value);\
+pm.unset(\'93variable-key\'94);\
+Pm.globals.clear(); //deletes all global variable
+\b0 \
+\
+\
+\
+}
